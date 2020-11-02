@@ -1,0 +1,5 @@
+package com.concess.api.repository;
+
+public interface ConcessionaryRepository {
+
+}

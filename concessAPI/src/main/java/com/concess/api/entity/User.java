@@ -19,6 +19,14 @@ public class User {
 	
 	@Column(length = 20)
 	private String password;
+
+	@Column(length = 50)
+	private String name;
+	
+	@Column(name = "mail", nullable=false, length=50, unique=true)
+	private String email;	
+	
+	private Boolean status;	
 	
 	public String getUsername() {
 		return username;
@@ -59,12 +67,4 @@ public class User {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
-
-	@Column(length = 50)
-	private String name;
-	
-	@Column(name = "mail", nullable=false, length=50, unique=true)
-	private String email;
-	
-	private Boolean status;
 }

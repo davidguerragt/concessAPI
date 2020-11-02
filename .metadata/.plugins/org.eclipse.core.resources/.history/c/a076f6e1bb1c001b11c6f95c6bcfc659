@@ -1,0 +1,5 @@
+package com.concess.api.controller;
+
+public class VehicleController {
+
+}

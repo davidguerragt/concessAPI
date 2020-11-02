@@ -1,0 +1,94 @@
+package com.concess.api.controller;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.concess.api.entity.Vehicle;
+import com.concess.api.service.VehicleService;
+
+@RestController
+@RequestMapping("/api/vehicles")
+public class VehicleController {
+	
+	@Autowired
+	private VehicleService vehicleService;
+	
+	//Create a new vehicle
+	@PostMapping
+	public ResponseEntity<?> create (@RequestBody Vehicle vehicle) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(vehicleService.save(vehicle));
+	}
+	
+	//Read an vehicle
+	@GetMapping("/{id}")
+	public ResponseEntity<?> read(@PathVariable Long id) {
+		Optional<Vehicle> oVehicle = vehicleService.findById(id);
+		
+		if(!oVehicle.isPresent()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return ResponseEntity.ok(oVehicle);
+	}
+	
+	//Update an vehicle
+	@PutMapping("/{id}")
+	public ResponseEntity<?> update (@RequestBody Vehicle vehicleDetails, @PathVariable Long id) {
+		Optional<Vehicle> oVehicle = vehicleService.findById(id);
+		
+		if(!oVehicle.isPresent()) {
+			return ResponseEntity.notFound().build();
+		}
+
+		oVehicle.get().setMotorNumber(vehicleDetails.getMotorNumber());
+		oVehicle.get().setVinNumber(vehicleDetails.getVinNumber());
+		oVehicle.get().setYearModel(vehicleDetails.getYearModel());
+		oVehicle.get().setModel(vehicleDetails.getModel());
+		oVehicle.get().setMake(vehicleDetails.getMake());
+		oVehicle.get().setColor(vehicleDetails.getColor());
+		oVehicle.get().setStyle(vehicleDetails.getStyle());
+		oVehicle.get().setNumWheels(vehicleDetails.getNumWheels());
+		oVehicle.get().setStatus(vehicleDetails.getStatus());
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(vehicleService.save(oVehicle.get()));
+	}
+	
+	
+	//Delete an vehicle
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<?> delete(@PathVariable Long id) {
+		Optional<Vehicle> oVehicle = vehicleService.findById(id);
+		
+		if(!oVehicle.isPresent()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		vehicleService.deleteById(id);
+		return ResponseEntity.ok().build();
+	}
+
+	//Read all vehicles
+	@GetMapping
+	public List<Vehicle> readAll() {
+		
+		List<Vehicle> vehicles = StreamSupport
+				.stream(vehicleService.findAll().spliterator(), false)
+				.collect(Collectors.toList());
+		
+		return vehicles;
+	}
+}

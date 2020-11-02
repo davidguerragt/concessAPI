@@ -39,6 +39,8 @@ public class Vehicle {
 	
 	private int numWheels;
 	
+	private Boolean status;	
+	
 	@Column(precision=8, scale=2)
 	private double price;
 
@@ -121,4 +123,13 @@ public class Vehicle {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+	
 }
