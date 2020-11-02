@@ -1,0 +1,5 @@
+package com.concess.api.entity;
+
+public class User {
+
+}
