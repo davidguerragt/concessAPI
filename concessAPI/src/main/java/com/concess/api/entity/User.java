@@ -1,6 +1,6 @@
 package com.concess.api.entity;
 
-import javax.persistence.Column;
+//import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,21 +12,14 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;	
-	
-	@Column(length = 20)
-	private String username;
-	
-	@Column(length = 20)
-	private String password;
-
-	@Column(length = 50)
-	private String name;
-	
-	@Column(name = "mail", nullable=false, length=50, unique=true)
-	private String email;	
-	
+	private Long    id;	
+	private String  username;
+	private String  password;
+	private String  name;
+	//@Column(name = "mail", nullable=false, length=50, unique=true)
+	private String  email;	
 	private Boolean status;	
+	private String  roles;
 	
 	public String getUsername() {
 		return username;
@@ -66,5 +59,13 @@ public class User {
 
 	public void setStatus(Boolean status) {
 		this.status = status;
+	}
+	
+	public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
 	}
 }
