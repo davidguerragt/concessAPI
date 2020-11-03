@@ -54,18 +54,18 @@ public class CustomerController {
 			return ResponseEntity.notFound().build();
 		}
 
-		
-		oCustomer.get().setName(customerDetails.getName());
+		oCustomer.get().setNationalId(customerDetails.getNationalId());
+		oCustomer.get().setFirstName(customerDetails.getFirstName());
 		oCustomer.get().setLastName(customerDetails.getLastName());
 		oCustomer.get().setEmail(customerDetails.getEmail());
 		oCustomer.get().setGender(customerDetails.getGender());
 		oCustomer.get().setDateOfBirth(customerDetails.getDateOfBirth());
 		oCustomer.get().setMaritalStatus(customerDetails.getMaritalStatus());
 		oCustomer.get().setPersonalAddress(customerDetails.getPersonalAddress());
-		oCustomer.get().setCountryId(customerDetails.getCountryId());
-		oCustomer.get().setStateId(customerDetails.getStateId());
-		oCustomer.get().setCityId(customerDetails.getCityId());
-		oCustomer.get().setDistrictId(customerDetails.getDistrictId());
+		oCustomer.get().setCountry(customerDetails.getCountry());
+		oCustomer.get().setState(customerDetails.getState());
+		oCustomer.get().setCity(customerDetails.getCity());
+		oCustomer.get().setDistrict(customerDetails.getDistrict());
 		oCustomer.get().setStatus(customerDetails.getStatus());
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(customerService.save(oCustomer.get()));

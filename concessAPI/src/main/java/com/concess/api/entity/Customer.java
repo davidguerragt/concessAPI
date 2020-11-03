@@ -14,51 +14,43 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(length = 50)
-	private String name;
-	
-	@Column(length = 50)
+	@Column(unique=true, length=20)
+	private String nationalId;
+	private String firstName;
 	private String lastName;
-	
-	@Column(nullable=false, length=50, unique=true)
-	private String eMail;
-	
-	@Column(length=1)
+	@Column(nullable=true)
+	private String Email;
 	private String gender;
-	
 	private LocalDate dateOfBirth;
-	
-	@Column(length = 1)
 	private String maritalStatus;
-
-	@Column(length =50)
 	private String personalAddress;
-		
-	private Long countryId;
-	
-	private Long stateId;
-	
-	private Long cityId;
-	
-	private Long districtId;
-	
-	private Boolean status;
+	private String Country;
+	private String State;
+	private String City;
+	private String District;
+	private Boolean Status;
 
+	//Getters and Setters
+	
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public String getNationalId() {
+		return nationalId;
 	}
 
-	public String getName() {
-		return name;
+	public void setNationalId(String nationalId) {
+		this.nationalId = nationalId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
@@ -70,11 +62,11 @@ public class Customer {
 	}
 
 	public String getEmail() {
-		return eMail;
+		return Email;
 	}
 
 	public void setEmail(String eMail) {
-		this.eMail = eMail;
+		this.Email = eMail;
 	}
 
 	public String getGender() {
@@ -109,43 +101,43 @@ public class Customer {
 		this.personalAddress = personalAddress;
 	}
 
-	public Long getCountryId() {
-		return countryId;
+	public String getCountry() {
+		return Country;
 	}
 
-	public void setCountryId(Long countryId) {
-		this.countryId = countryId;
+	public void setCountry(String country) {
+		Country = country;
 	}
 
-	public Long getStateId() {
-		return stateId;
+	public String getState() {
+		return State;
 	}
 
-	public void setStateId(Long stateId) {
-		this.stateId = stateId;
+	public void setState(String state) {
+		State = state;
 	}
 
-	public Long getCityId() {
-		return cityId;
+	public String getCity() {
+		return City;
 	}
 
-	public void setCityId(Long cityId) {
-		this.cityId = cityId;
+	public void setCity(String city) {
+		City = city;
 	}
 
-	public Long getDistrictId() {
-		return districtId;
+	public String getDistrict() {
+		return District;
 	}
 
-	public void setDistrictId(Long districtId) {
-		this.districtId = districtId;
+	public void setDistrict(String district) {
+		District = district;
 	}
 
 	public Boolean getStatus() {
-		return status;
+		return Status;
 	}
 
 	public void setStatus(Boolean status) {
-		this.status = status;
+		Status = status;
 	}
 }

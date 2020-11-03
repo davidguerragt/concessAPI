@@ -13,6 +13,10 @@ public class Vehicle {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	//Motor Number
+	@Column(length = 20)
+	private String plateNumber;
 	
 	//Motor Number
 	@Column(length = 20)
@@ -48,10 +52,14 @@ public class Vehicle {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public String getPlateNumber() {
+		return plateNumber;
 	}
 
+	public void setPlateNumber(String plateNumber) {
+		this.plateNumber = plateNumber;
+	}
+	
 	public String getMotorNumber() {
 		return motorNumber;
 	}

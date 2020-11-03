@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,9 @@ import com.concess.api.repository.UserRepository;
 public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private BCryptPasswordEncoder encoder;
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -37,6 +41,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	@Transactional
 	public User save(User user) {
+		user.setPassword(encoder.encode(user.getPassword()));
 		return userRepository.save(user);
 	}
 

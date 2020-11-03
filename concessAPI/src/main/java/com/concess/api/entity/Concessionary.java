@@ -14,23 +14,32 @@ public class Concessionary {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(length = 20)
+	private String shortName;
+	
 	@Column(length = 50)
-	private String name;
+	private String fullName;
+
+	private Boolean status;
 	
 	public Long getId() {
 		return id;
 	}
-
-	public void setId(Long id) {
-		this.id = id;
+	
+	public String getShortName() {
+		return shortName;
 	}
 
-	public String getName() {
-		return name;
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
+	}
+	
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public Boolean getStatus() {
@@ -40,6 +49,5 @@ public class Concessionary {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
-
-	private Boolean status;	
+	
 }

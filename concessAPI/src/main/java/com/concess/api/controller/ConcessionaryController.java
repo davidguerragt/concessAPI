@@ -54,7 +54,8 @@ public class ConcessionaryController {
 			return ResponseEntity.notFound().build();
 		}
 
-		oConcessionary.get().setName(concessionaryDetails.getName());
+		oConcessionary.get().setShortName(concessionaryDetails.getShortName());
+		oConcessionary.get().setFullName(concessionaryDetails.getFullName());
 		oConcessionary.get().setStatus(concessionaryDetails.getStatus());
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(concessionaryService.save(oConcessionary.get()));

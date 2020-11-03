@@ -54,6 +54,7 @@ public class VehicleController {
 			return ResponseEntity.notFound().build();
 		}
 
+		oVehicle.get().setPlateNumber(vehicleDetails.getPlateNumber());
 		oVehicle.get().setMotorNumber(vehicleDetails.getMotorNumber());
 		oVehicle.get().setVinNumber(vehicleDetails.getVinNumber());
 		oVehicle.get().setYearModel(vehicleDetails.getYearModel());
@@ -63,6 +64,7 @@ public class VehicleController {
 		oVehicle.get().setStyle(vehicleDetails.getStyle());
 		oVehicle.get().setNumWheels(vehicleDetails.getNumWheels());
 		oVehicle.get().setStatus(vehicleDetails.getStatus());
+		oVehicle.get().setPrice(vehicleDetails.getPrice());
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(vehicleService.save(oVehicle.get()));
 	}

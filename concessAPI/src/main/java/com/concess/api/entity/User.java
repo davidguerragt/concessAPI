@@ -12,14 +12,18 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long    id;	
+	private Long    id;
+	
 	private String  username;
 	private String  password;
 	private String  name;
-	//@Column(name = "mail", nullable=false, length=50, unique=true)
 	private String  email;	
 	private Boolean status;	
 	private String  roles;
+	
+	public long getId() {
+		return id;
+	}
 	
 	public String getUsername() {
 		return username;

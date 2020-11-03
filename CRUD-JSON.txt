@@ -1,0 +1,77 @@
+//Users
+GET http://localhost:8082/api/users
+GET http://localhost:8082/api/users/1
+POST http://localhost:8082/api/users
+PUT http://localhost:8082/api/users/1
+DELETE GET http://localhost:8082/api/users/1
+
+ {
+        "id": "1",
+        "firstName":"Haroldo",
+        "lastName":"Calderon",
+        "email":"haroldocalderon@gmail.com",
+        "gender":"M",
+        "dateOfBirth":"1973-07-23",
+        "maritalStatus":"C",
+        "personalAddress":"Zona 21",
+        "country":"Guatemala",
+        "state":"Guatemala",
+        "city":"Guatemala",
+        "district":"La Reforma",
+        "status":true
+    }
+
+//Customers
+GET http://localhost:8082/api/customers
+GET http://localhost:8082/api/customers/1
+POST http://localhost:8082/api/customers
+PUT http://localhost:8082/api/customers/1
+DELETE GET http://localhost:8082/api/customers/1
+ {
+        "id": "1",
+        "firstName":"Haroldo",
+        "lastName":"Calderon",
+        "email":"haroldocalderon@gmail.com",
+        "gender":"M",
+        "dateOfBirth":"1973-07-23",
+        "maritalStatus":"C",
+        "personalAddress":"Zona 21",
+        "country":"Guatemala",
+        "state":"Guatemala",
+        "city":"Guatemala",
+        "district":"La Reforma",
+        "status":true
+    }
+
+//Concessionaries
+GET http://localhost:8082/api/concesionaries
+GET http://localhost:8082/api/concesionaries/1
+POST http://localhost:8082/api/concesionaries
+PUT http://localhost:8082/api/concesionaries/1
+DELETE GET http://localhost:8082/api/concesionaries/1
+
+{
+    "id": "1",
+    "name":"Toyota Guatemala",
+    "status":true
+}
+
+// Vehicles: http://localhost:8082/api/vehicles
+GET http://localhost:8082/api/vehicles
+GET http://localhost:8082/api/vehicles/1
+POST http://localhost:8082/api/vehicles
+PUT http://localhost:8082/api/vehicles/1
+DELETE http://localhost:8082/api/vehicles/1
+
+{
+    "motorNumber":"ABCD12345RR",
+    "vinNumber":"XX44546RJB",
+    "yearModel":"2015",
+    "model":"Rav4",
+    "make":"Toyota",
+    "color":"Negra",
+    "style":"Camioneta",
+    "numWheels":"4",
+    "price":"120000",
+    "status":true
+}

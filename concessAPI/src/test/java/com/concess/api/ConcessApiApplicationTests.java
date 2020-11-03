@@ -31,8 +31,30 @@ class ConcessApiApplicationTests {
 		us.setPassword(encoder.encode("C0nc3551973#"));
 		us.setEmail("admin@concess.com");
 		us.setStatus(true);
+		us.setRoles("ADMIN");
 		User retorno = repo.save(us);
 		assertTrue(retorno.getPassword().equalsIgnoreCase(us.getPassword()));
+		
+		us = new User();
+		us.setUsername("user");
+		us.setName("User");
+		us.setPassword(encoder.encode("uS3r$1"));
+		us.setEmail("user@concess.com");
+		us.setStatus(true);
+		us.setRoles("USER");
+		retorno = repo.save(us);
+		assertTrue(retorno.getPassword().equalsIgnoreCase(us.getPassword()));
+		
+		us = new User();
+		us.setUsername("usertwo");
+		us.setName("User Two");
+		us.setPassword(encoder.encode("uS3r$2"));
+		us.setEmail("usertwo@concess.com");
+		us.setStatus(true);
+		us.setRoles("USER");
+		retorno = repo.save(us);
+		assertTrue(retorno.getPassword().equalsIgnoreCase(us.getPassword()));
+		
 	}
 
 }

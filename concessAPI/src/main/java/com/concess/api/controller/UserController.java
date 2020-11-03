@@ -8,6 +8,7 @@ import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.concess.api.service.UserService;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "http://localhost")
 public class UserController {
 	
 	@Autowired
@@ -59,6 +61,7 @@ public class UserController {
 		oUser.get().setPassword(userDetails.getPassword());
 		oUser.get().setEmail(userDetails.getEmail());
 		oUser.get().setStatus(userDetails.getStatus());
+		oUser.get().setRoles(userDetails.getRoles());
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(oUser.get()));
 	}
