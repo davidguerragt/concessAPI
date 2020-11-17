@@ -6,20 +6,14 @@ PUT http://localhost:8082/api/users/1
 DELETE GET http://localhost:8082/api/users/1
 
  {
-        "id": "1",
-        "firstName":"Haroldo",
-        "lastName":"Calderon",
-        "email":"haroldocalderon@gmail.com",
-        "gender":"M",
-        "dateOfBirth":"1973-07-23",
-        "maritalStatus":"C",
-        "personalAddress":"Zona 21",
-        "country":"Guatemala",
-        "state":"Guatemala",
-        "city":"Guatemala",
-        "district":"La Reforma",
-        "status":true
-    }
+    "id":"1",
+    "userName":"admin",
+    "password":"C0nc3551973#",
+    "name":"David",
+    "email":"haroldocalderon@gmail.com",
+    "status":true,
+    "roles":"ADMIN"
+}
 
 //Customers
 GET http://localhost:8082/api/customers
@@ -29,6 +23,7 @@ PUT http://localhost:8082/api/customers/1
 DELETE GET http://localhost:8082/api/customers/1
  {
         "id": "1",
+        "nationalId":"2262056810101",
         "firstName":"Haroldo",
         "lastName":"Calderon",
         "email":"haroldocalderon@gmail.com",
@@ -64,6 +59,7 @@ PUT http://localhost:8082/api/vehicles/1
 DELETE http://localhost:8082/api/vehicles/1
 
 {
+    "plateNumber":"P0777FNR",
     "motorNumber":"ABCD12345RR",
     "vinNumber":"XX44546RJB",
     "yearModel":"2015",
@@ -74,4 +70,34 @@ DELETE http://localhost:8082/api/vehicles/1
     "numWheels":"4",
     "price":"120000",
     "status":true
+}
+
+
+//Vendor
+GET http://localhost:8082/api/vendors
+GET http://localhost:8082/api/vendors/1
+POST http://localhost:8082/api/vendors
+PUT http://localhost:8082/api/vendors/1
+DELETE http://localhost:8082/api/vendors/1
+{
+    "id": "1",
+    "nationalId":"2262056810101",
+    "fullName":"Amilcar Melgar",
+    "concessionary":"Toyota"
+}
+
+
+
+//VehicleSale
+GET http://localhost:8082/api/vehiclesales
+GET http://localhost:8082/api/vehiclesales/1
+POST http://localhost:8082/api/vehiclesales
+PUT http://localhost:8082/api/vehiclesales/1
+DELETE http://localhost:8082/api/vehiclesales/1
+
+{
+    "customerNationalId":"2262056",
+    "concessionaryShortName":"",
+    "vehiclePlateNumber":"",
+    "vendorNationalId":"",
 }

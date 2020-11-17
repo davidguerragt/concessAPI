@@ -13,7 +13,7 @@ public class VehicleSale {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long   Id;
 	
-	private String customerNationaId;
+	private String customerNationalId;
 	private String concessionaryShortName;
 	private String vehiclePlateNumber;
 	private String vendorNationalId;
@@ -25,11 +25,11 @@ public class VehicleSale {
 	public void setId(Long id) {
 		Id = id;
 	}
-	public String getCustomerNationaId() {
-		return customerNationaId;
+	public String getCustomerNationalId() {
+		return customerNationalId;
 	}
-	public void setCustomerNationaId(String customerNationaId) {
-		this.customerNationaId = customerNationaId;
+	public void setCustomerNationalId(String customerNationalId) {
+		this.customerNationalId = customerNationalId;
 	}
 	public String getConcessionaryShortName() {
 		return concessionaryShortName;

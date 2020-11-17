@@ -21,7 +21,7 @@ import com.concess.api.entity.VehicleSale;
 import com.concess.api.service.VehicleSaleService;
 
 @RestController
-@RequestMapping("/api/vehicleSales")
+@RequestMapping("/api/vehiclesales")
 public class VehicleSaleController {
 	
 	@Autowired
@@ -54,7 +54,7 @@ public class VehicleSaleController {
 			return ResponseEntity.notFound().build();
 		}
 		
-		oVehicleSale.get().setCustomerNationaId(vehicleSaleDetails.getCustomerNationaId());
+		oVehicleSale.get().setCustomerNationalId(vehicleSaleDetails.getCustomerNationalId());
 		oVehicleSale.get().setConcessionaryShortName(vehicleSaleDetails.getConcessionaryShortName());
 		oVehicleSale.get().setVehiclePlateNumber(vehicleSaleDetails.getVehiclePlateNumber());
 		oVehicleSale.get().setVendorNationalId(vehicleSaleDetails.getVendorNationalId());
